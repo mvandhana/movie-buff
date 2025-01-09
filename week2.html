@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotating Image Slider</title>
+    <style>
+        body {
+            margin: 10;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #4b4949;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            width: 180%;
+            max-width: 1000px;
+            height: 500px;
+            background-color: #8a8686; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .slider {
+            position: relative;
+            width: 80%;
+            max-width: 800px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .slide {
+            position: absolute;
+            width: 300px;
+            height: 400px;
+            opacity: 0.5;
+            transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 130%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgb(7, 7, 7);
+            transform: rotateY(0deg);
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .thumbnail-name {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgb(12, 13, 6);
+            color: rgb(248, 244, 244);
+            padding: 8px 12px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 5;
+            opacity: 0.8;
+            transition: opacity 0.3s ease, background-color 0.3s ease;
+        }
+
+        .thumbnail-name:hover {
+            opacity: 1;
+            background-color: rgba(226, 105, 5, 0.981);
+        }
+
+        .slide.center {
+            transform: translateX(0) scale(1.1); 
+            opacity: 1;
+            z-index: 10;
+        }
+
+        .slide.center img {
+            animation: rotate3D 0.8s ease-in-out; 
+        }
+
+        .slide.left {
+            transform: translateX(-110%) scale(0.9);
+            opacity: 0.5;
+        }
+
+        .slide.right {
+            transform: translateX(110%) scale(0.9);
+            opacity: 0.5;
+        }
+
+        /* Navigation Buttons */
+        .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+            z-index: 20;
+        }
+
+        .control {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: rgb(255, 255, 255);
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .control:hover {
+            background-color: rgba(41, 135, 217, 0.8);
+        }
+
+        .prev {
+            position: absolute;
+            left: -5px;
+        }
+
+        .next {
+            position: absolute;
+            right: -5px;
+        }
+
+        /* Keyframe for 3D rotation */
+        @keyframes rotate3D {
+            0% {
+                transform: rotateY(0deg);
+            }
+            100% {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slide">
+            <img src="C:\Users\Joshn\Desktop\pichu11.jpg" alt="Eiffel Tower">
+            <div class="thumbnail-name" data-index="0">Eiffel Tower</div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\Joshn\Desktop\manchu22.jpg" alt="Taj Mahal">
+            <div class="thumbnail-name" data-index="1">Burj Khalifa </div>
+        </div>
+        <div class="slide">
+            <img src="C:\Users\Joshn\Desktop\manchuu11.jpg" alt="Qutub Minar">
+            <div class="thumbnail-name" data-index="2">Qutub Minar</div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <button class="control prev">&#10094;</button>
+        <button class="control next">&#10095;</button>
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll('.slide');
+        const thumbnails = document.querySelectorAll('.thumbnail-name');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        function updateSlider() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('center', 'left', 'right');
+                const img = slide.querySelector('img');
+
+                if (index === currentIndex) {
+                    slide.classList.add('center');
+                } else {
+                    img.style.transform = 'rotateY(0deg)'; 
+                    if (index === (currentIndex - 1 + slides.length) % slides.length) {
+                        slide.classList.add('left');
+                    } else if (index === (currentIndex + 1) % slides.length) {
+                        slide.classList.add('right');
+                    }
+                }
+            });
+        }
+
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+                resetAutoSlide();
+            });
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+            resetAutoSlide();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+            resetAutoSlide();
+        });
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlider();
+            }, 3000); 
+        }
+
+        function resetAutoSlide() {
+            clearInterval(autoSlideInterval);
+            startAutoSlide();
+        }
+
+        updateSlider();
+        startAutoSlide();
+    </script>
+</body>
+</html>
