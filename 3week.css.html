@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0dcdc;
+            margin: 0;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: #32505f;
+            padding: 20px;
+            text-align: right;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ddd;
+        }
+        section {
+            display: none;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section:target {
+            display: block;
+        }
+
+        #home {
+            display: block;
+        }
+
+        /* Styling for Product Section */
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 20px;
+            text-align: center;
+            width: 45%;
+            max-width: 300px;
+        }
+
+        .product img {
+            width: 80%;
+            height: 90;
+            border-radius: 8px;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .product-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #d9534f;
+            margin-bottom: 15px;
+        }
+
+        .view-details-btn {
+            background-color: #5bc0de;
+            color: rgb(32, 28, 28);
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .view-details-btn:hover {
+            background-color: #000000;
+        }
+         /* Styling for Add to Cart Button */
+        .add-to-cart-btn {
+            background-color: #53ec6d; 
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 10px; 
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #218838; 
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product-details img {
+            width: 1000%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-details h1 {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .product-details .product-price {
+            font-size: 24px;
+            color: #d9534f;
+            margin: 10px 0;
+        }
+
+        .product-details .product-description {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .customer-reviews {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .customer-reviews h2 {
+            font-size: 22px;
+        }
+
+        .customer-reviews p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .related-images img {
+            width: 130px;
+            height: 180px;
+            margin: 5px;
+            border-radius: 4px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Happy Store</h1>
+        <p>Discover a wide range of high-quality products at unbeatable prices.</p>
+    </section>
+    <!-- Shop Section -->
+    <section id="shop">
+        <h1>Shop Products</h1>
+        <div class="product-container">
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sofa12.jpg?raw=true" alt="Sofa">
+                <h2 class="product-title">Sofa</h2>
+                <p class="product-description">A comfortable and stylish sofa.</p>
+                <p class="product-price">₹25,000</p>
+                <a href="#product1" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/mobile22.jpg?raw=true" alt="oppo mobile">
+                <h2 class="product-title">oppo mobile</h2>
+                <p class="product-description">OPPO A78 5G (Glowing Black, 128 GB)  (8 GB RAM).</p>
+                <p class="product-price">₹25,000</p>
+                <a href="#product2" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sweaters.jpg?raw=true" alt="sweater">
+                <h2 class="product-title">Sweater</h2>
+                <p class="product-description">Indian sweater ,fit and protected(gray).</p>
+                <p class="product-price">₹800</p>
+                <a href="#product3" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/buddha.jpg?raw=true"alt="Buddha">
+                <h2 class="product-title">Buddha</h2>
+                <p class="product-description">Buddha Blessing Resin Showpiece - Gold & White</p>
+                <p class="product-price">₹500</p>
+                <a href="#product4" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/chair.jpg?raw=true" alt="office chair">
+                <h2 class="product-title">office chair</h2>
+                <p class="product-description">Gravita High Back Office Chair (White and Grey)</p>
+                <p class="product-price">₹3000</p>
+                <a href="#product5" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/fridge2.jpg?raw=true" alt="Refrigerator">
+                <h2 class="product-title">Refrigerator</h2>
+                <p class="product-description">Energy-efficient refrigerator with spacious interior.</p>
+                <p class="product-price">₹50,000</p>
+                <a href="#product6" class="view-details-btn">View Details</a>
+                <button class="add-to-cart-btn">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+    
+<section id="product1">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sofa12.jpg?raw=true" alt="Sofa">
+        <div class="product-details">
+            <h1>Sofa</h1>
+            <p class="product-price">₹25,000</p>
+            <p class="product-description">
+                A comfortable and stylish sofa, perfect for your living room.
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - Very comfortable and stylish!</p>
+            <p>★★★★☆ - Great value for money!</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sofa122.jpg?raw=true" alt="Related Product 1">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sofa13.jpg?raw=true" alt="Related Product 2">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<section id="product2">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/mobile22.jpg?raw=true" alt="oppo mobile">
+        <div class="product-details">
+            <h1>oppo mobile</h1>
+            <p class="product-price"> ₹25,000</p>
+            <p class="product-description">
+                OPPO A78 5G (Glowing Black, 128 GB)  (8 GB RAM).
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - good sound quality!</p>
+            <p>★★★★☆ - good camera quality</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/mobile%2011.jpg?raw=true" alt="Related Product 1">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/mobile33.jpg?raw=true" alt="Related Product 2">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<section id="product3">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sweaters.jpg?raw=true" alt=Sweaters>
+        <div class="product-details">
+            <h1>Sweaters</h1>
+            <p class="product-price">₹800</p>
+            <p class="product-description">
+                Indian sweater ,fit and protected(gray).
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - Perfect for tracking my workouts!</p>
+            <p>★★★★☆ - Works great, battery life could be better.</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sweaters2.jpg?raw=true" alt="Related Product 1">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/sweaters3.jpg?raw=true" alt="Related Product 2">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<section id="product4">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/buddha.jpg?raw=true" alt="buddha">
+        <div class="product-details">
+            <h1>OBuddha</h1>
+            <p class="product-price">₹500</p>
+            <p class="product-description">
+                Buddha Blessing Resin Showpiece - Gold & White
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - good</p>
+            <p>★★★★☆ - nice</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/buddha33.jpg?raw=true" alt="Related Product 1">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<section id="product5">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/chair.jpg?raw=true" alt="office chair">
+        <div class="product-details">
+            <h1>office chair</h1>
+            <p class="product-price">₹3000</p>
+            <p class="product-description">
+                Gravita High Back Office Chair (White and Grey)
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - Excellent support for long hours of sitting!</p>
+            <p>★★★★☆ -  Comfortable and stylish.</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/chair22.jpg?raw=true" alt="Related Product 1">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/chair33.jpg?raw=true" alt="Related Product 2">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/chair44.jpg?raw=true" alt="Related Product 3">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<section id="product6">
+    <div class="container">
+        <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/fridge2.jpg?raw=true" alt="Refrigerator">
+        <div class="product-details">
+            <h1>Refrigerator</h1>
+            <p class="product-price">₹50,000</p>
+            <p class="product-description">
+                Spacious, energy-efficient refrigerator with a sleek design.
+            </p>
+        </div>
+        <div class="customer-reviews">
+            <h2>Customer Reviews</h2>
+            <p>★★★★★ - Love the space and efficiency!</p>
+            <p>★★★★☆ - A bit noisy, but great performance overall.</p>
+        </div>
+        <div class="related-images">
+            <h2>Related Products</h2>
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/fridge22.jpg?raw=true" alt="Related Product 1">
+            <img src="https://github.com/mvandhana/movie-buff/blob/main/3week%20images/fridge33.jpg?raw=true" alt="Related Product 2">
+        </div>
+        <a href="#shop" class="back-link">Back to Shop</a>
+    </div>
+</section>
+<!-- Contact Section -->
+<section id="contact">
+    <h1>Contact Us</h1>
+    <p>If you have any questions, feel free to reach out!</p>
+    <form action="submit_form.php" method="POST">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+</body>
+</html>
