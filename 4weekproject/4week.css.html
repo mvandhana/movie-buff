@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Magazine Cover</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #5b5b5c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Magazine Container */
+        .magazine {
+            width: 620px; 
+            height: 800px;
+            background: white;
+            position: relative;
+            border-radius: 20px;
+            border: 20px solid rgb(248, 52, 52);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        /* Featured Image */
+        .featured-image {
+            width: 98%; 
+            height: 100%; 
+            background: url('https://github.com/mvandhana/movie-buff/blob/main/4weekimage/bts%20with%20papa%20bear.jpg?raw=true') no-repeat center top;
+            background-size: cover;
+            background-color: white;
+            position: relative;
+            margin-top: 1%;
+        }
+
+        /* Title Styling */
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            color: #f1ebeb;
+            font-size: 3rem;
+            font-family: 'Oswald', sans-serif;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tagline Styling with Arrow */
+        .tagline {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #75895e;
+            display: flex;
+            align-items: center;
+            line-height: 1.4;
+        }
+
+        .arrow {
+            font-size: 3rem;
+            margin-right: 12px;
+            color: rgb(92, 145, 79);
+        }
+
+        /* Bottom Text Styling */
+        .bottom-text {
+            position: absolute;
+            bottom: 80px;
+            left: 20px;
+            right: 20px;
+            font-size: 1.2rem;
+            font-weight: normal;
+            text-align: left;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Emphasis & Italic Text */
+        .yellow-text {
+            color: rgb(221, 43, 206);
+        }
+    
+        .italic-text {
+            font-style: italic;
+            font-size: 1rem;
+        }
+
+        /* Red Line Separators */
+        .red-line {
+            width: 100px;
+            height: 3px;
+            background-color: red;
+            margin-top: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .magazine {
+                width: 90%;
+                height: auto;
+            }
+
+            .title {
+                font-size: 2.2rem;
+            }
+
+            .bottom-text {
+                font-size: 1rem;
+            }
+
+            .date {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="featured-image"></div>
+        <div class="title">
+            <span class="blue-text">From Seoul to the World </span>
+        </div>
+        <div class="tagline">
+            <span class="arrow">→</span><span class="italic-text"><br>The Nonstop Triumphs <br>of the World's<br> Biggest Band.
+        </div>
+        <div class="bottom-text">
+            SOUTH KOREA'S <span class="Purple">HYBE</span><br> IS REINVENTING THE<br>MUSIC BUSINESS <span class="italic-text">.<br>(WITH A LITTLE HELP FROM BTS!)</span><br>
+            <div class="red-line"></div> 
+            <span class="italic-text"> Chairman <span class="yellow-text">Bang Si-hyuk </span>and supergroup BTS </span>
+            <div class="red-line"></div> 
+        </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
